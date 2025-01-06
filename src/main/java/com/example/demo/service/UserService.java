@@ -8,11 +8,16 @@ import com.example.demo.repository.UserRepository;
 
 @Service
 public class UserService {
+	
+//	Log in page show
 	 @Autowired
 	    private UserRepository userRepository;
 
 	    public void saveUser(User user) {
 	        userRepository.save(user);
 	    }
-
+//	    Log In
+	    public User validateUser(String email, String password) {
+	        return userRepository.findByEmailAndPassword(email, password);
+	    }
 }

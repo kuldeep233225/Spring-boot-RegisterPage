@@ -28,4 +28,21 @@ public class UserController {
 	        model.addAttribute("message", "User registered successfully!");
 	        return "success"; // Loads success.jsp
 	    }
+	 // Login Page
+	    @GetMapping("/login")
+	    public String loginPage() {
+	        return "login"; // login.jsp
+	    }
+
+	    @PostMapping("/login")
+	    public String loginUser(@ModelAttribute User user, Model model) {
+	        User loggedInUser = userService.validateUser(user.getEmail(), user.getPassword());
+	        if (loggedInUser != null) {
+	            model.addAttribute("name", loggedInUser.getName());
+	            return "welcome"; // welcome.jsp
+	        } else {
+	            model.addAttribute("error", "Invalid email or password!");
+	            return "login"; // login.jsp
+	        }
+	    }
 }

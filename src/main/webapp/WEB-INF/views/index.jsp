@@ -30,7 +30,7 @@
             </div>
         </form>
         <div class="form-footer">
-            <p>Alraday ragister click to  <a href="#">Log In</a></p>
+            <p>Alraday ragister click to  <a href="login">Log In</a></p>
         </div>
     </div>
 </body>
