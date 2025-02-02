@@ -10,15 +10,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class UserController {
 	 @Autowired
 	    private UserService userService;
 
-	    @GetMapping("/")
+	    @GetMapping("/singup")
 	    public String homePage(Model model) {
 	        model.addAttribute("user", new User()); // Bind an empty User object
-	        return "index"; // Loads index.jsp
+	        return "singup"; // singu.jsp
 	    }
 
 	    @PostMapping("/register")
@@ -28,7 +30,7 @@ public class UserController {
 	        model.addAttribute("message", "User registered successfully!");
 	        return "success"; // Loads success.jsp
 	    }
-	 // Login Page
+	    // Login Page
 	    @GetMapping("/login")
 	    public String loginPage() {
 	        return "login"; // login.jsp
@@ -45,4 +47,20 @@ public class UserController {
 	            return "login"; // login.jsp
 	        }
 	    }
+	    
+	 // Logout Page
+	    @GetMapping("/logout")
+	    public String logout(HttpSession session, Model model) {
+	        session.invalidate(); // Invalidate the session
+	        model.addAttribute("message", "You have been logged out successfully.");
+	        return "logout"; // logout.jsp
+	    }
+	    
+	    
+	    @GetMapping("/appointment")
+	    public String showappointmentForm() {
+	        return "appointment"; // Maps to appointment.jsp
+	    }
+	    
+	    
 }
