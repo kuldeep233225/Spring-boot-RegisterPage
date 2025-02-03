@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ragister Page</title>
+    <title>Log In</title>
 	<link rel="stylesheet" href="css/ragistation.css">
    
 </head>
 <body>
     <div class="login-container">
-        <h2>Ragister</h2>
+        <h2>Log In</h2>
         <form action="/login" method="post">
             <div class="form-group">
                 <label for="email">Email</label>

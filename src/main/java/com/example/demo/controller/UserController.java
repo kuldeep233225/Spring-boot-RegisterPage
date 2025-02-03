@@ -57,10 +57,7 @@ public class UserController {
 	    }
 	    
 	    
-	    @GetMapping("/appointment")
-	    public String showappointmentForm() {
-	        return "appointment"; // Maps to appointment.jsp
-	    }
+	   
 	    
 	    
 }
